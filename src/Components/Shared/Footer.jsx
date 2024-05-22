@@ -17,9 +17,9 @@ const Footer = () => {
                     <div className="w-full">
                         <h6 className="text-lg font-medium ">Contact Info</h6>
                         <div className="flex flex-col md:flex-row gap-6 justify-around items-start md:items-center mt-6 delay-100 duration-300">
-                            <p className="flex items-start md:items-center flex-col mt-2 gap-2  transform transition-transform delay-100 duration-300 bg-blue-200 hover:bg-blue-300  p-4 rounded-tr-xl rounded-bl-xl hover:-translate-y-3 w-52 font-medium"><MdOutlineLocalPhone />Phone : <span>+8801906479901</span></p>
-                            <p className="flex items-start md:items-center flex-col mt-2 gap-2  transform transition-transform delay-100 duration-300 bg-blue-200 hover:bg-blue-300  p-4 rounded-tr-xl rounded-bl-xl hover:-translate-y-3 w-52 font-medium"><MdOutlineMailOutline /> Email : <span>sojibhossain.cse@gmail.com</span></p>
-                            <p className="flex items-start md:items-center flex-col mt-2 gap-2  transform transition-transform delay-100 duration-300 bg-blue-200 hover:bg-blue-300  p-4 rounded-tr-xl rounded-bl-xl hover:-translate-y-3 w-52 font-medium"><MdOutlineLocationOn /> Address : <span>56/2 shukrabad , Dhaka</span></p>
+                            <p className="flex items-start md:items-center flex-col mt-2 gap-2  transform transition-transform delay-100 duration-300 bg-blue-200 hover:bg-blue-300  p-4 rounded-tr-xl rounded-bl-xl hover:-translate-y-3 w-56 font-medium"><MdOutlineLocalPhone className="text-2xl"/>Phone : <span className="text-sm">+8801906479901</span></p>
+                            <p className="flex items-start md:items-center flex-col mt-2 gap-2  transform transition-transform delay-100 duration-300 bg-blue-200 hover:bg-blue-300  p-4 rounded-tr-xl rounded-bl-xl hover:-translate-y-3 w-56 font-medium"><MdOutlineMailOutline className="text-2xl"/> Email : <span className="text-sm">sojibhossain.cse@gmail.com</span></p>
+                            <p className="flex items-start md:items-center flex-col mt-2 gap-2  transform transition-transform delay-100 duration-300 bg-blue-200 hover:bg-blue-300  p-4 rounded-tr-xl rounded-bl-xl hover:-translate-y-3 w-56 font-medium"><MdOutlineLocationOn className="text-2xl"/> Address : <span className="text-sm">56/2 shukrabad , Dhaka</span></p>
                         </div>
                     </div>
                     <div className="flex justify-between flex-col-reverse md:flex-row items-center w-full mt-3 md:mt-4 lg:mt-6 gap-4">
