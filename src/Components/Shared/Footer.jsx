@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <div className="border">
-            <footer className="footer footer-center p-4 gap-4 md:gap-6 lg:gap-8 text-base-content max-w-6xl mx-auto py-10 md:py-16 lg:py-20">
+            <footer className="footer footer-center p-4 gap-4 md:gap-6 lg:gap-8 text-base-content max-w-6xl mx-auto py-6 md:py-8 lg:py-12">
                 <aside>
                     <Link to="/" className="flex gap-2 items-center justify-center">
                         <img src="https://i.ibb.co/2gYddvL/logo.jpg" alt="website-logo" className="h-7 rounded-full" />
