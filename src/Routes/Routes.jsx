@@ -3,6 +3,9 @@ import Main from "../layout/Main";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import NoUserProtectedRoutes from "../ProtectedRoutes/NoUserProtectedRoutes";
+import AllJobs from "../Pages/AllJobs/AllJobs";
+import Home from "../Pages/Home/Home";
 
 
 const router = createBrowserRouter([
@@ -12,12 +15,24 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
+                index : true,
+                element : <Home></Home>
+            },
+            {
                 path : "/login",
-                element : <Login></Login>
+                element : <NoUserProtectedRoutes>
+                    <Login></Login>
+                </NoUserProtectedRoutes>
             },
             {
                 path : "/register",
-                element : <Register></Register>
+                element : <NoUserProtectedRoutes>
+                    <Register></Register>
+                </NoUserProtectedRoutes>
+            },
+            {
+                path : "/all-jobs",
+                element :<AllJobs></AllJobs>
             },
         ]
     },

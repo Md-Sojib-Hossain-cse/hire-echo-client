@@ -8,7 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
     const [error , setError] = useState("");
-    const { logIn , googleLogin} = useAuth();
+    const { logIn , googleLogin } = useAuth();
 
     const handleLogin = e => {
         e.preventDefault();

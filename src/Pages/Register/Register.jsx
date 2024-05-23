@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 const Register = () => {
     const [passwordError, setPasswordError] = useState("");
     const [error , setError] = useState("");
-    const { createUser } = useAuth();
+    const { createUser , updateUser} = useAuth();
 
 
     const handleRegister = e => {
@@ -18,13 +18,6 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-
-        const user = {
-            name,
-            email,
-            password,
-            photo,
-        }
 
         if (password.length < 8) {
             setPasswordError("Password must be 8 characters.");
@@ -46,17 +39,21 @@ const Register = () => {
         }
 
         createUser(email, password)
-            .then(() => {
+            .then(result => {
                 setError("")
                 toast.success('User Created Successfully!')
+                updateUser(result.user , {
+                    displayName : name,
+                    photoUrl : photo,
+                })
+                    .then(() => {
+                        toast.success("profile updated")
+                    })
             })
             .catch(error => {
                 setError(error.message);
             })
-
-
     }
-
 
     return (
         <div className="relative py-8 md:py-12 lg:py-16">

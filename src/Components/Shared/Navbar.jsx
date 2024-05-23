@@ -2,13 +2,14 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
-    const { loading, user , logOut} = useAuth();
+    const { loading, user, logOut } = useAuth();
     const navigate = useNavigate();
 
     const handleLogout = () => {
         logOut();
         navigate("/");
     }
+
 
     return (
         <div className="bg-base-100 border-b">
@@ -37,11 +38,13 @@ const Navbar = () => {
                                     <div>
                                         <div title={user.displayName ? user.displayName : ""} tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                             <div className="w-8 md:w-10 rounded-full">
-                                                <img alt="Tailwind CSS Navbar component" src="https://i.ibb.co/YjYJphk/demo-Profile-Image.png" />
+                                                <img src={`${user?.photoURL ? user.photoURL : "https://i.ibb.co/sbkyhCp/blank-profile.png"}`} alt="profile image" referrerPolicy="no-referrer" />
                                             </div>
                                         </div>
                                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                            <li><NavLink to="/profile">Profile</NavLink></li>
+                                            <li><NavLink 
+                                            to="/profile" 
+                                            >Profile</NavLink></li>
                                             <li><NavLink to="/appliedJobs">Applied Jobs</NavLink></li>
                                             <li><NavLink to="/addAJob">Add a Job</NavLink></li>
                                             <li><NavLink to="/myJobs">My Jobs</NavLink></li>
