@@ -26,6 +26,7 @@ const TopHiringCompany = () => {
 
     return (
         <div className="pt-8 md:pt-12 lg:pt-16">
+            <p className="text-sm text-blue-500 font-medium text-center mb-3">Popular Companies</p>
             <h4 className="text-3xl md:text-4xl font-medium text-center">Top Hiring Company</h4>
             <div className="pt-6 md:pt-8 lg:pt-10">
                 <Swiper

@@ -23,6 +23,7 @@ const JobByCategory = () => {
 
     return (
         <div className="mt-10 md:mt-12 lg:mt-16 text-center min-h-48">
+            <p className="text-sm text-blue-500 font-medium text-center mb-3">Jobs By Category</p>
             <h4 className="text-3xl md:text-4xl font-medium text-center pb-6 md:pb-8 lg:pb-12">Find Your Dream Job Now</h4>
             <Tabs>
                 <TabList>
