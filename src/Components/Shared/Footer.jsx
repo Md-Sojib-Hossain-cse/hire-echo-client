@@ -22,7 +22,7 @@ const Footer = () => {
                             <p className="flex items-start md:items-center flex-col mt-2 gap-2  transform transition-transform delay-100 duration-300 bg-blue-200 hover:bg-blue-300  p-4 rounded-tr-xl rounded-bl-xl hover:-translate-y-3 w-56 font-medium"><MdOutlineLocationOn className="text-2xl"/> Address : <span className="text-sm">56/2 shukrabad , Dhaka</span></p>
                         </div>
                     </div>
-                    <div className="flex justify-between flex-col-reverse md:flex-row items-center w-full mt-3 md:mt-4 lg:mt-6 gap-4">
+                    <div className="flex justify-between flex-col-reverse md:flex-row items-center w-full mt-3 md:mt-4 lg:mt-6 gap-4 border-t pt-3">
                         <p>Copyright © 2024 - All right reserved by HireEcho ltd.</p>
                         <div className="flex gap-4 justify-between">
                             <a href="https://www.facebook.com/Arifulislam083/" target="_blank" className="text-2xl hover:text-blue-600 transition duration-500"><MdOutlineFacebook /></a>

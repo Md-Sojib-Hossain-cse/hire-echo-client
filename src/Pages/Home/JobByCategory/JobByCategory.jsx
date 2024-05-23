@@ -19,8 +19,6 @@ const JobByCategory = () => {
             })
     }, [category])
 
-    console.log(jobs)
-
     return (
         <div className="mt-10 md:mt-12 lg:mt-16 text-center min-h-48">
             <p className="text-sm text-blue-500 font-medium text-center mb-3">Jobs By Category</p>

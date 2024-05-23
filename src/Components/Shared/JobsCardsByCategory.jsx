@@ -4,22 +4,21 @@ import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
 AOS.init();
 
 const JobsCardsByCategory = ({ jobData }) => {
-    const {_id ,  category, jobTitle, salaryRange, jobLocation, companyName , jobDescription} = jobData;
-    const {user} = useAuth();
+    const { _id, category, jobTitle, salaryRange, jobLocation, companyName, jobDescription } = jobData;
+    const { user } = useAuth();
     const navigate = useNavigate();
 
     const handleViewDetails = () => {
-        if(!user){
+        if (!user) {
             toast.error("You have to log in first to view details!");
-            navigate("/login");
+            navigate("/login")
+            return;
         }
-        else{
-            navigate(`/jobDetails/${_id}`)
-        }
+        navigate(`/jobDetails/${_id}`);
     }
 
     return (
@@ -37,13 +36,15 @@ const JobsCardsByCategory = ({ jobData }) => {
             </div>
             <div className="px-4 md:px-6 pt-3">
                 <h3 data-aos="fade-up" className="text-left text-xl font-medium hover:text-blue-300 transition duration-200">{jobTitle}</h3>
-                <p data-aos="fade-up" className="text-left text-sm">{jobDescription.slice(0,100)}......</p>
+                <p data-aos="fade-up" className="text-left text-sm">{jobDescription.slice(0, 100)}......</p>
             </div>
             <div className="px-4 md:px-6 py-4 md:pb-6 flex justify-between items-center">
                 <p data-aos="fade-up" className="text-sm font-medium">Salary : {salaryRange}</p>
-                <button data-aos="fade-up" 
-                onClick={handleViewDetails}
-                className="btn-sm bg-blue-400 text-white rounded-lg btn-ghost">View Details</button>
+                <button 
+                    data-aos="fade-up"
+                    onClick={handleViewDetails}
+                    className="btn-sm bg-blue-400 text-white rounded-lg btn-ghost z-50">View Details
+                </button>
             </div>
         </div>
     );

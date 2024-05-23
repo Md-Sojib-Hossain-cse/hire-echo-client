@@ -6,6 +6,8 @@ import Register from "../Pages/Register/Register";
 import NoUserProtectedRoutes from "../ProtectedRoutes/NoUserProtectedRoutes";
 import AllJobs from "../Pages/AllJobs/AllJobs";
 import Home from "../Pages/Home/Home";
+import JobDetails from "../Pages/JobDetails/JobDetails";
+import UserProtectedRoutes from "../ProtectedRoutes/UserProtectedRoutes";
 
 
 const router = createBrowserRouter([
@@ -33,6 +35,13 @@ const router = createBrowserRouter([
             {
                 path : "/all-jobs",
                 element :<AllJobs></AllJobs>
+            },
+            {
+                path : "/jobDetails/:id",
+                element :<UserProtectedRoutes>
+                    <JobDetails></JobDetails>
+                </UserProtectedRoutes>,
+                loader : ({params}) => fetch(`http://localhost:5000/jobDetails/${params.id}`)
             },
         ]
     },
