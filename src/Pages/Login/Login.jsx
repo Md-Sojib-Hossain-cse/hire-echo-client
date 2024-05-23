@@ -8,26 +8,34 @@ import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
     const [error , setError] = useState("");
-    const { logIn , user } = useAuth();
+    const { logIn , googleLogin} = useAuth();
 
-    console.log(user)
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         
-
         logIn(email, password)
             .then(() => {
                 setError("")
                 toast.success('User Logged in Successfully!')
+                form.reset();
             })
             .catch(error => {
                 setError(error.message);
             })
+    }
 
-
+    const handleGoogleLogin = () => {
+        googleLogin()
+        .then(() => {
+            setError("")
+            toast.success('User Logged in Successfully!');
+        })
+        .catch(error => {
+            setError(error.message);
+        })
     }
 
 
@@ -43,7 +51,7 @@ const Login = () => {
                     <h3 className="text-3xl text-center">Login to Your Account</h3>
                     <p className="text-center px-4">Log in to HireEcho to find your perfect job match and take your career to new heights.</p>
                     <div className="flex justify-center items-center pt-4 pb-2">
-                        <button className="text-2xl p-2 border-2 rounded-full "><FcGoogle /></button>
+                        <button onClick={handleGoogleLogin} className="text-2xl p-2 border-2 rounded-full "><FcGoogle /></button>
                     </div>
                     <div className="divider">Or</div>
                 </div>
