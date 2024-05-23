@@ -7,26 +7,21 @@ import { FaUser } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-    const [passwordError, setPasswordError] = useState("");
     const [error , setError] = useState("");
-    const { createUser } = useAuth();
+    const { logIn , user } = useAuth();
 
-
+    console.log(user)
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+        
 
-        const user = {
-            email,
-            password,
-        }
-
-        createUser(email, password)
+        logIn(email, password)
             .then(() => {
                 setError("")
-                toast.success('User Created Successfully!')
+                toast.success('User Logged in Successfully!')
             })
             .catch(error => {
                 setError(error.message);
@@ -62,7 +57,6 @@ const Login = () => {
                         <label htmlFor="password" className="font-medium">Password :</label>
                         <input type="password" name="password" id="password" placeholder="Password"
                             className="w-full px-3 py-2 rounded-lg border mt-2 outline-2 outline-blue-300" required />
-                        {passwordError ? <p className="text-sm text-red-500">{passwordError}</p> : ""}
                         {error ? <p className="text-sm mt-1 text-red-500">{error.split("/")[1].split(")")[0].split("-").join(" ")}</p> : ""}
                     </div>
                     <div className="pt-6">
