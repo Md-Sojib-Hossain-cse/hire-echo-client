@@ -23,7 +23,7 @@ const JobsCardsByCategory = ({ jobData }) => {
     }
 
     return (
-        <div className="border rounded-lg">
+        <div className="border rounded-lg hover:-translate-y-3 hover:bg-gray-100 transition delay-100 duration-300">
             <div className="border-b px-4 md:px-6 pt-4 md:pt-6 pb-3">
                 <h4 data-aos="fade-up" className="text-right text-lg font-medium hover:text-blue-300 transition duration-200">{companyName}</h4>
                 <div data-aos="fade-up" className="flex justify-between">
