@@ -30,7 +30,7 @@ const TopHiringCompany = () => {
             <h4 className="text-3xl md:text-4xl font-medium text-center">Top Hiring Company</h4>
             <div className="pt-6 md:pt-8 lg:pt-10">
                 <Swiper
-                    slidesPerView={4}
+                    slidesPerView={2}
                     spaceBetween={30}
                     centeredSlides={true}
                     autoplay={{

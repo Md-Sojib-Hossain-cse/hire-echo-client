@@ -1,6 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { MdOutlineLogin } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
@@ -9,6 +9,8 @@ import { FcGoogle } from "react-icons/fc";
 const Login = () => {
     const [error , setError] = useState("");
     const { logIn , googleLogin } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleLogin = e => {
         e.preventDefault();
@@ -20,6 +22,12 @@ const Login = () => {
             .then(() => {
                 setError("")
                 toast.success('User Logged in Successfully!')
+                if(location.state){
+                    navigate(location.state);
+                }
+                else{
+                    navigate("/")
+                }
                 form.reset();
             })
             .catch(error => {
@@ -32,6 +40,12 @@ const Login = () => {
         .then(() => {
             setError("")
             toast.success('User Logged in Successfully!');
+            if(location.state){
+                navigate(location.state);
+            }
+            else{
+                navigate("/")
+            }
         })
         .catch(error => {
             setError(error.message);

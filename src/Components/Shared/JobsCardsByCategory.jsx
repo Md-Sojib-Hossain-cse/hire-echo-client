@@ -15,8 +15,8 @@ const JobsCardsByCategory = ({ jobData }) => {
     const handleViewDetails = () => {
         if (!user) {
             toast.error("You have to log in first to view details!");
-            navigate("/login")
-            return;
+            navigate("/login" , {state : `/jobDetails/${_id}`})
+            return ;
         }
         navigate(`/jobDetails/${_id}`);
     }

@@ -3,11 +3,13 @@ import Main from "../layout/Main";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
-import NoUserProtectedRoutes from "../ProtectedRoutes/NoUserProtectedRoutes";
 import AllJobs from "../Pages/AllJobs/AllJobs";
 import Home from "../Pages/Home/Home";
 import JobDetails from "../Pages/JobDetails/JobDetails";
 import UserProtectedRoutes from "../ProtectedRoutes/UserProtectedRoutes";
+import Blogs from "../Pages/Blogs/Blogs";
+import AccessToken from "../Pages/Blogs/AccessToken/AccessToken";
+import ExpressNestJs from "../Pages/Blogs/ExpressNestJs/ExpressNestJs";
 
 
 const router = createBrowserRouter([
@@ -22,15 +24,11 @@ const router = createBrowserRouter([
             },
             {
                 path : "/login",
-                element : <NoUserProtectedRoutes>
-                    <Login></Login>
-                </NoUserProtectedRoutes>
+                element : <Login></Login>
             },
             {
                 path : "/register",
-                element : <NoUserProtectedRoutes>
-                    <Register></Register>
-                </NoUserProtectedRoutes>
+                element :<Register></Register>
             },
             {
                 path : "/all-jobs",
@@ -43,6 +41,20 @@ const router = createBrowserRouter([
                 </UserProtectedRoutes>,
                 loader : ({params}) => fetch(`http://localhost:5000/jobDetails/${params.id}`)
             },
+            {
+                path : "/blogs",
+                element : <Blogs></Blogs>,
+                children : [ 
+                    {
+                        path: "/blogs",
+                        element : <AccessToken></AccessToken>
+                    },
+                    {
+                        path: "/blogs/expressNestJs",
+                        element : <ExpressNestJs></ExpressNestJs>
+                    },
+                ]
+            }
         ]
     },
 ]);

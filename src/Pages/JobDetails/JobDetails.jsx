@@ -1,9 +1,15 @@
 import { IoLocationOutline } from "react-icons/io5";
 import { useLoaderData } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const JobDetails = () => {
+    const {loading} = useAuth();
     const jobData = useLoaderData();
     const { _id, category, name, jobTitle, jobPostingDate, applicationDeadline, salaryRange, jobApplicantsNumber, jobLocation, companyName, jobDescription } = jobData;
+
+
+    if(loading) return <span className="loading loading-spinner loading-xs"></span> 
+
     return (
         <div className="mt-10 md:mt-12 lg:mt-16 p-4 md:p-8 lg:p-12 border rounded-lg">
             <div className="flex justify-between items-center">
