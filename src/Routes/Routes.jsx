@@ -31,8 +31,8 @@ const router = createBrowserRouter([
                 element :<Register></Register>
             },
             {
-                path : "/all-jobs",
-                element :<AllJobs></AllJobs>
+                path : "/allJobs",
+                element :<AllJobs></AllJobs>,
             },
             {
                 path : "/jobDetails/:id",
