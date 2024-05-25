@@ -46,7 +46,7 @@ const Navbar = () => {
                                             to="/profile" 
                                             >Profile</NavLink></li>
                                             <li><NavLink to="/appliedJobs">Applied Jobs</NavLink></li>
-                                            <li><NavLink to="/addAJob">Add a Job</NavLink></li>
+                                            <li><NavLink to="/addJobs">Add a Job</NavLink></li>
                                             <li><NavLink to="/myJobs">My Jobs</NavLink></li>
                                             <li><button onClick={handleLogout}>LogOut</button></li>
                                         </ul>

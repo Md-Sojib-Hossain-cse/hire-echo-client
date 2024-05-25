@@ -17,6 +17,9 @@ const JobByCategory = () => {
                 setJobs(res.data);
                 setDataLoading(false);
             })
+            .catch(() => {
+                setDataLoading(false);
+            })
     }, [category])
 
     return (

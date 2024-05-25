@@ -10,6 +10,7 @@ import UserProtectedRoutes from "../ProtectedRoutes/UserProtectedRoutes";
 import Blogs from "../Pages/Blogs/Blogs";
 import AccessToken from "../Pages/Blogs/AccessToken/AccessToken";
 import ExpressNestJs from "../Pages/Blogs/ExpressNestJs/ExpressNestJs";
+import AddJobs from "../Pages/AddJobs/AddJobs";
 
 
 const router = createBrowserRouter([
@@ -19,39 +20,45 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
-                index : true,
-                element : <Home></Home>
+                index: true,
+                element: <Home></Home>
             },
             {
-                path : "/login",
-                element : <Login></Login>
+                path: "/login",
+                element: <Login></Login>
             },
             {
-                path : "/register",
-                element :<Register></Register>
+                path: "/register",
+                element: <Register></Register>
             },
             {
-                path : "/allJobs",
-                element :<AllJobs></AllJobs>,
+                path: "/addJobs",
+                element: <UserProtectedRoutes>
+                    <AddJobs></AddJobs>
+                </UserProtectedRoutes>
             },
             {
-                path : "/jobDetails/:id",
-                element :<UserProtectedRoutes>
+                path: "/allJobs",
+                element: <AllJobs></AllJobs>,
+            },
+            {
+                path: "/jobDetails/:id",
+                element: <UserProtectedRoutes>
                     <JobDetails></JobDetails>
                 </UserProtectedRoutes>,
-                loader : ({params}) => fetch(`http://localhost:5000/jobDetails/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/jobDetails/${params.id}`)
             },
             {
-                path : "/blogs",
-                element : <Blogs></Blogs>,
-                children : [ 
+                path: "/blogs",
+                element: <Blogs></Blogs>,
+                children: [
                     {
                         path: "/blogs",
-                        element : <AccessToken></AccessToken>
+                        element: <AccessToken></AccessToken>
                     },
                     {
                         path: "/blogs/expressNestJs",
-                        element : <ExpressNestJs></ExpressNestJs>
+                        element: <ExpressNestJs></ExpressNestJs>
                     },
                 ]
             }

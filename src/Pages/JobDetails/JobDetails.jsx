@@ -7,7 +7,7 @@ import moment from "moment";
 const JobDetails = () => {
     const { loading , user} = useAuth();
     const jobData = useLoaderData();
-    const { _id, category, name, jobTitle, jobPostingDate, applicationDeadline, salaryRange, jobApplicantsNumber, jobLocation, companyName, jobDescription, jobImage ,buyer} = jobData;
+    const { _id, category ,  jobTitle, jobPostingDate, applicationDeadline, salaryRange, jobApplicantsNumber, jobLocation, companyName, jobDescription, jobImage ,buyer} = jobData;
 
     const currentDate = moment().format(); 
     const formattedDate = currentDate.split("T")[0];
@@ -51,7 +51,7 @@ const JobDetails = () => {
                 <div>
                     <h4 className="text-2xl font-semibold">{companyName}</h4>
                     <p className="flex justify-start items-center gap-2 mb-3"><IoLocationOutline />{jobLocation}</p>
-                    <p className="font-medium">Posted By : {name}</p>
+                    <p className="font-medium">Posted By : {buyer.buyerName}</p>
                     <p>Posting Date : {jobPostingDate}</p>
                     <p>Application Deadline : {applicationDeadline}</p>
                     <p>Total Applicant : {jobApplicantsNumber}</p>

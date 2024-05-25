@@ -60,9 +60,6 @@ const AllJobs = () => {
             </div>
             <div className="mt-4 md:mt-6 lg:mt-8 border p-2 md:p-3 lg:p-4">
                 <div className="overflow-x-auto">
-                    {
-                        jobDataError ? <p>Cannot load data at this moment ...</p> : ""
-                    }
                     <table className="table">
                         <thead>
                             <tr>
@@ -73,6 +70,9 @@ const AllJobs = () => {
                                 <th>Details</th>
                             </tr>
                         </thead>
+                        {
+                            jobDataError ? <p>Cannot load data at this moment ...</p> : ""
+                        }
                         {
                             jobDataLoading ?
                                 <div className="flex justify-center items-center min-h-48">
