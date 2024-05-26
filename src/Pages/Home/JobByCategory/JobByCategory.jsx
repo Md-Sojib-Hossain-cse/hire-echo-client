@@ -53,11 +53,13 @@ const JobByCategory = () => {
                 <TabPanel>
                     {
                         dataLoading ?
-                            <span className="loading loading-spinner loading-xs"></span> :
+                            <div className="min-h-screen flex justify-center items-center">
+                                <img src="https://i.ibb.co/xF7yDds/loading.gif" alt="" className="h-48 w-auto" />
+                            </div> :
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 pt-4 md:pt-6'>
                                 {
                                     jobs ?
-                                        jobs.slice(0,6).map(jobData => <JobsCardsByCategory key={jobData._id} jobData={jobData}></JobsCardsByCategory>) :
+                                        jobs.slice(0, 6).map(jobData => <JobsCardsByCategory key={jobData._id} jobData={jobData}></JobsCardsByCategory>) :
                                         <p>Sorry , No Jobs available in this moment..</p>
                                 }
                             </div>
@@ -66,7 +68,9 @@ const JobByCategory = () => {
                 <TabPanel>
                     {
                         dataLoading ?
-                            <span className="loading loading-spinner loading-xs"></span> :
+                            <div className="min-h-screen flex justify-center items-center">
+                                <img src="https://i.ibb.co/xF7yDds/loading.gif" alt="" className="h-48 w-auto" />
+                            </div> :
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 pt-4 md:pt-6'>
                                 {
                                     jobs ?
@@ -79,7 +83,9 @@ const JobByCategory = () => {
                 <TabPanel>
                     {
                         dataLoading ?
-                            <span className="loading loading-spinner loading-xs"></span> :
+                            <div className="min-h-screen flex justify-center items-center">
+                                <img src="https://i.ibb.co/xF7yDds/loading.gif" alt="" className="h-48 w-auto" />
+                            </div> :
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 pt-4 md:pt-6'>
                                 {
                                     jobs ?

@@ -11,6 +11,7 @@ import Blogs from "../Pages/Blogs/Blogs";
 import AccessToken from "../Pages/Blogs/AccessToken/AccessToken";
 import ExpressNestJs from "../Pages/Blogs/ExpressNestJs/ExpressNestJs";
 import AddJobs from "../Pages/AddJobs/AddJobs";
+import MyJobs from "../Pages/MyJobs/MyJobs";
 
 
 const router = createBrowserRouter([
@@ -40,6 +41,12 @@ const router = createBrowserRouter([
             {
                 path: "/allJobs",
                 element: <AllJobs></AllJobs>,
+            },
+            {
+                path: "/myJobs",
+                element: <UserProtectedRoutes>
+                    <MyJobs></MyJobs>
+                </UserProtectedRoutes>,
             },
             {
                 path: "/jobDetails/:id",

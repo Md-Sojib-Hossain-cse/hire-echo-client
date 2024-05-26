@@ -185,7 +185,6 @@ const AddJobs = () => {
                                 </div>
                             </div>
                         </div>
-
                         <input type="submit" value="Submit Your Job" className="btn bg-blue-400 text-white mt-6"/>
                     </form>
                 </div>

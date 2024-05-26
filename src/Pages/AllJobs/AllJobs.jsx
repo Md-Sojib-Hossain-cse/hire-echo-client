@@ -70,22 +70,22 @@ const AllJobs = () => {
                                 <th>Details</th>
                             </tr>
                         </thead>
-                        {
-                            jobDataError ? <p>Cannot load data at this moment ...</p> : ""
-                        }
-                        {
-                            jobDataLoading ?
-                                <div className="flex justify-center items-center min-h-48">
-                                    <span className="loading loading-spinner loading-xs"></span>
-                                </div>
-                                : ""
-                        }
                         <tbody>
                             {
                                 allJobsData.map(singleJobData => <JobTableRow key={singleJobData._id} singleJobData={singleJobData}></JobTableRow>)
                             }
                         </tbody>
                     </table>
+                    {
+                        jobDataError ? <p>Cannot load data at this moment ...</p> : ""
+                    }
+                    {
+                        jobDataLoading ?
+                            <div className="flex justify-center items-center min-h-48 w-full">
+                                <img src="https://i.ibb.co/xF7yDds/loading.gif" alt="" className="h-48 w-auto" />
+                            </div>
+                            : ""
+                    }
                 </div>
             </div>
         </div>
