@@ -4,6 +4,7 @@ import { MdOutlineLogin } from "react-icons/md";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const [passwordError, setPasswordError] = useState("");
@@ -57,6 +58,9 @@ const Register = () => {
 
     return (
         <div className="relative py-8 md:py-12 lg:py-16">
+            <Helmet>
+                <title>HireEcho | Register</title>
+            </Helmet>
             <form onSubmit={handleRegister} className="w-full md:w-2/3 lg:w-1/2 m-4 rounded-lg mx-auto shadow-lg border">
                 <div className="flex relative">
                     <Link to="/login" className="flex items-center justify-center gap-2 w-1/2 bg-slate-100 p-4 hover:text-blue-500 rounded-tl-lg"><MdOutlineLogin /> Login to Account</Link>

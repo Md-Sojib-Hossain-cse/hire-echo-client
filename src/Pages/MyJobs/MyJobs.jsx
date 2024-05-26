@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import MyJobsRow from "../../Components/MyJobsRow";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const MyJobs = () => {
     //current user Job state
@@ -79,6 +80,9 @@ const MyJobs = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>HireEcho | MyJobs</title>
+            </Helmet>
             <div className="h-40 md:h-52 lg:h-60 bg-gray-800 flex justify-start items-center relative">
                 <h2 className="text-3xl text-white pl-4 md:pl-6 font-semibold z-10">My Jobs</h2>
                 <div className="absolute h-full w-full">

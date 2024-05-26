@@ -8,6 +8,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const AddJobs = () => {
     //react date picker state 
@@ -76,6 +77,9 @@ const AddJobs = () => {
 
     return (
         <div className="py-6 md:py-8 lg:py-12">
+            <Helmet>
+                <title>HireEcho | AddJob</title>
+            </Helmet>
             <h2 className="text-3xl font-semibold mb-3 px-4 md:px-6">Post a job</h2>
             <p className="w-10/12 md:w-9/12 lg:w-7/12 px-4 md:px-6">Reach top talent by posting your job openings on HireEcho. Start connecting with qualified candidates today!</p>
             <div className="mt-6 md:mt-8 lg:mt-10 border rounded-lg shadow-lg">

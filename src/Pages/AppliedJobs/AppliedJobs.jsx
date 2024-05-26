@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import AppliedJobsCard from "../../Components/AppliedJobsCard";
+import { Helmet } from "react-helmet-async";
 
 const AppliedJobs = () => {
 
@@ -45,6 +46,9 @@ const AppliedJobs = () => {
 
     return (
         <div className="pb-6 md:pb-8 lg:pb-12">
+            <Helmet>
+                <title>HireEcho | AppliedJobs</title>
+            </Helmet>
             <div className="min-h-40 md:min-h-52 lg:min-h-60 bg-gray-800 flex justify-start items-center relative">
                 <div className="flex flex-col gap-3">
                     <h2 className="text-3xl text-white pl-4 md:pl-6 font-semibold z-10">Applied Jobs</h2>

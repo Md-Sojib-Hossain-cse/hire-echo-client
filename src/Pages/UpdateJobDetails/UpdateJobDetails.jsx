@@ -9,6 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const UpdateJobDetails = () => {
@@ -89,6 +90,9 @@ const UpdateJobDetails = () => {
 
     return (
         <div className="py-6 md:py-8 lg:py-12">
+            <Helmet>
+                <title>HireEcho | UpdateJobDetails</title>
+            </Helmet>
             <h2 className="text-3xl font-semibold mb-3 px-4 md:px-6">Update Your Job Information</h2>
             <p className="w-10/12 md:w-9/12 lg:w-7/12 px-4 md:px-6">Quickly edit and update your job postings to keep them current and accurate. Adjust details like job titles, descriptions, salary ranges, and deadlines to attract the best candidates.</p>
             <div className="mt-6 md:mt-8 lg:mt-10 border rounded-lg shadow-lg">

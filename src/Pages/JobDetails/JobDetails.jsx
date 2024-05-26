@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import ApplyNowForm from "../../Components/Shared/ApplyNowForm";
 import moment from "moment";
+import { Helmet } from "react-helmet-async";
 
 const JobDetails = () => {
     const { loading , user} = useAuth();
@@ -24,6 +25,9 @@ const JobDetails = () => {
 
     return (
         <div className="mt-10 md:mt-12 lg:mt-16 p-4 md:p-8 lg:p-12 border rounded-lg">
+            <Helmet>
+                <title>HireEcho | Home</title>
+            </Helmet>
             <div className="flex justify-between items-center">
                 <p className="text-sm font-light">Job ID : {_id}</p>
                 <p className={`text-sm border rounded-full px-2 py-1 

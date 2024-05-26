@@ -14,6 +14,7 @@ import AddJobs from "../Pages/AddJobs/AddJobs";
 import MyJobs from "../Pages/MyJobs/MyJobs";
 import UpdateJobDetails from "../Pages/UpdateJobDetails/UpdateJobDetails";
 import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
+import Profile from "../Pages/Profile/Profile";
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,12 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register></Register>
+            },
+            {
+                path: "/profile",
+                element: <UserProtectedRoutes>
+                    <Profile></Profile>
+                </UserProtectedRoutes>
             },
             {
                 path: "/addJobs",
@@ -61,7 +68,7 @@ const router = createBrowserRouter([
                 element: <UserProtectedRoutes>
                     <UpdateJobDetails></UpdateJobDetails>
                 </UserProtectedRoutes>,
-                loader : ({ params }) => fetch(`http://localhost:5000/jobDetails/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/jobDetails/${params.id}`)
 
             },
             {

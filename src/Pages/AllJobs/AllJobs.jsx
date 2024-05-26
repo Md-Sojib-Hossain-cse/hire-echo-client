@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import JobTableRow from "../../Components/Shared/JobTableRow";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const AllJobs = () => {
     const [allJobsData, setAllJobsData] = useState([]);
@@ -42,6 +43,9 @@ const AllJobs = () => {
 
     return (
         <div className="py-6 md:py-8 lg:py-12">
+            <Helmet>
+                <title>HireEcho | AllJobs</title>
+            </Helmet>
             <h2 className="text-2xl md:text-3xl font-semibold text-center mb-3">Explore Opportunities - All Jobs at HireEcho</h2>
             <p className="text-center w-11/12 md:w-10/12 lg:w-9/12 mx-auto">Browse a diverse range of job opportunities across various industries and locations. Find your next career move with HireEcho and take the first step towards your dream job.</p>
             <div className="mt-4 md:mt-6 border-y pt-4 md:pt-6 lg:pt-8 pb-2 md:pb-3 lg:pb-4 md:grid grid-cols-2 md:grid-cols-3 gap-8 px-4">
