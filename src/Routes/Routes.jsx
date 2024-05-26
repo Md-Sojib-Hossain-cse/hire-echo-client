@@ -12,6 +12,7 @@ import AccessToken from "../Pages/Blogs/AccessToken/AccessToken";
 import ExpressNestJs from "../Pages/Blogs/ExpressNestJs/ExpressNestJs";
 import AddJobs from "../Pages/AddJobs/AddJobs";
 import MyJobs from "../Pages/MyJobs/MyJobs";
+import UpdateJobDetails from "../Pages/UpdateJobDetails/UpdateJobDetails";
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,14 @@ const router = createBrowserRouter([
                 element: <UserProtectedRoutes>
                     <MyJobs></MyJobs>
                 </UserProtectedRoutes>,
+            },
+            {
+                path: "/updateJobDetails/:id",
+                element: <UserProtectedRoutes>
+                    <UpdateJobDetails></UpdateJobDetails>
+                </UserProtectedRoutes>,
+                loader : ({ params }) => fetch(`http://localhost:5000/jobDetails/${params.id}`)
+
             },
             {
                 path: "/jobDetails/:id",

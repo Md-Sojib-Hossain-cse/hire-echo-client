@@ -26,6 +26,7 @@ const MyJobs = () => {
             })
     }, [user])
 
+    //delete single job
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",
