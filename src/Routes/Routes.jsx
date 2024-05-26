@@ -13,6 +13,7 @@ import ExpressNestJs from "../Pages/Blogs/ExpressNestJs/ExpressNestJs";
 import AddJobs from "../Pages/AddJobs/AddJobs";
 import MyJobs from "../Pages/MyJobs/MyJobs";
 import UpdateJobDetails from "../Pages/UpdateJobDetails/UpdateJobDetails";
+import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,12 @@ const router = createBrowserRouter([
                 path: "/addJobs",
                 element: <UserProtectedRoutes>
                     <AddJobs></AddJobs>
+                </UserProtectedRoutes>
+            },
+            {
+                path: "/appliedJobs",
+                element: <UserProtectedRoutes>
+                    <AppliedJobs></AppliedJobs>
                 </UserProtectedRoutes>
             },
             {
