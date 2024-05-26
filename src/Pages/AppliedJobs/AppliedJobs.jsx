@@ -17,7 +17,7 @@ const AppliedJobs = () => {
         console.log(filterText)
         
         //get applied jobs based on category
-        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}&filterBy=${filterText}`)
+        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}&filterBy=${filterText}` , {withCredentials : true})
             .then(res => {
                 setAppliedJobs(res.data);
                 setAppliedJobsDataError("");
@@ -31,7 +31,7 @@ const AppliedJobs = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}`)
+        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}` , {withCredentials : true})
             .then(res => {
                 setAppliedJobs(res.data);
                 setAppliedJobsDataError("");

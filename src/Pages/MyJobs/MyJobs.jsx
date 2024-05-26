@@ -16,7 +16,7 @@ const MyJobs = () => {
 
     //loading data based on current user email
     useEffect(() => {
-        axios.get(`http://localhost:5000/allJobs?email=${user?.email}`)
+        axios.get(`http://localhost:5000/allJobs?email=${user?.email}` , {withCredentials : true})
             .then(res => {
                 setMyJobs(res.data);
                 setMyJobsLoading(false);
@@ -42,7 +42,7 @@ const MyJobs = () => {
             if (result.isConfirmed) {
 
                 //job delete
-                axios.delete(`http://localhost:5000/myJob/${id}`)
+                axios.delete(`http://localhost:5000/myJob/${id}` , {withCredentials : true})
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             const remainingJobs = myJobs.filter (singleJob => singleJob._id !==id);

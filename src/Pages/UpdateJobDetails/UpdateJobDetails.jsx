@@ -69,7 +69,7 @@ const UpdateJobDetails = () => {
         }
 
         //post jobDetails
-        axios.put(`http://localhost:5000/jobDetailsUpdate/${_id}`, jobDetails)
+        axios.put(`http://localhost:5000/jobDetailsUpdate/${_id}`, jobDetails , {withCredentials : true})
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     toast.success("job Updated Successfully.");

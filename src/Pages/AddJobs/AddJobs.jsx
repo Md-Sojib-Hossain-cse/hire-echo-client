@@ -60,7 +60,7 @@ const AddJobs = () => {
         }
 
         //post jobDetails
-        axios.post("http://localhost:5000/addJobs" , jobDetails)
+        axios.post("http://localhost:5000/addJobs" , jobDetails , {withCredentials :true})
             .then(res => {
                 if(res.data.insertedId){
                     toast.success("job added Successfully.");
