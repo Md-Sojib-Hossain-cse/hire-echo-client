@@ -48,7 +48,7 @@ const AppliedJobs = () => {
     const handleFilter = e => {
         const filterText = e.target.value;
         //get applied jobs based on category
-        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}&filterBy=${filterText}`, { withCredentials: true })
+        axios.get(`https://hire-echo-server.vercel.app/appliedJobs?email=${user?.email}&filterBy=${filterText}`, { withCredentials: true })
             .then(res => {
                 setAppliedJobs(res.data);
                 setAppliedJobsDataError("");
@@ -62,7 +62,7 @@ const AppliedJobs = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}`, { withCredentials: true })
+        axios.get(`https://hire-echo-server.vercel.app/appliedJobs?email=${user?.email}`, { withCredentials: true })
             .then(res => {
                 setAppliedJobs(res.data);
                 setAppliedJobsDataError("");

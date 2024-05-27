@@ -13,7 +13,7 @@ const Profile = () => {
 
     useEffect(() => {
         //applied job count api
-        axios.get(`http://localhost:5000/jobAppliedCount?email=${user.email}`, { withCredentials: true })
+        axios.get(`https://hire-echo-server.vercel.app/jobAppliedCount?email=${user.email}`, { withCredentials: true })
             .then(res => {
                 setJobAppliedCount(res.data)
             })
@@ -21,7 +21,7 @@ const Profile = () => {
             })
 
         //posted job count api
-        axios.get(`http://localhost:5000/jobPostedCount?email=${user.email}`, { withCredentials: true })
+        axios.get(`https://hire-echo-server.vercel.app/jobPostedCount?email=${user.email}`, { withCredentials: true })
             .then(res => {
                 setJobPostedCount(res.data)
             })

@@ -1,8 +1,21 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# HireEcho
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Link
+
+https://hire-echo.web.app/
+
+
+## Key Features
+
+- Find Your Dream Jobs in an organized way
+- Post jobs without any cost and find out your best candidate
+- Manage Your Applied Jobs in an organized way
+- Read some informative and resourceful blogs to expand your knowledge
+- Place in the worlds top tier companies
+
+
+## Selected Category
+
+Assignment_category_0003

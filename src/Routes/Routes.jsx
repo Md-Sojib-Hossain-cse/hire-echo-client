@@ -68,7 +68,7 @@ const router = createBrowserRouter([
                 element: <UserProtectedRoutes>
                     <UpdateJobDetails></UpdateJobDetails>
                 </UserProtectedRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/jobDetails/${params.id}` , {credentials : "include"})
+                loader: ({ params }) => fetch(`https://hire-echo-server.vercel.app/jobDetails/${params.id}` , {credentials : "include"})
 
             },
             {
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
                 element: <UserProtectedRoutes>
                     <JobDetails></JobDetails>
                 </UserProtectedRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/jobDetails/${params.id}` , {credentials : "include"})
+                loader: ({ params }) => fetch(`https://hire-echo-server.vercel.app/jobDetails/${params.id}` , {credentials : "include"})
             },
             {
                 path: "/blogs",

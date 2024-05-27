@@ -14,7 +14,7 @@ const AllJobs = () => {
         const form = e.target;
         const searchText = form.search.value;
         setJobDataLoading(true);
-        axios.get(`http://localhost:5000/allJobs?search=${searchText}`)
+        axios.get(`https://hire-echo-server.vercel.app/allJobs?search=${searchText}`)
             .then(res => {
                 setAllJobsData(res.data);
                 SetJobDataError("");
@@ -28,7 +28,7 @@ const AllJobs = () => {
 
     useEffect(() => {
         setJobDataLoading(true);
-        axios.get("http://localhost:5000/allJobs")
+        axios.get("https://hire-echo-server.vercel.app/allJobs")
             .then(res => {
                 setAllJobsData(res.data);
                 SetJobDataError("");

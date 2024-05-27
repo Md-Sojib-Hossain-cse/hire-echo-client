@@ -16,7 +16,7 @@ const TopHiringCompany = () => {
     const [companies, setCompanies] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/companies")
+        axios.get("https://hire-echo-server.vercel.app/companies")
             .then(res => {
                 setCompanies(res.data);
             })
@@ -50,7 +50,7 @@ const TopHiringCompany = () => {
                             companies.map(companyData => <SwiperSlide key={companyData._id}>
                                 <div className='flex justify-center items-center gap-2 md:flex-col py-8 md:py-12 lg:py-16'>
                                     <img src={companyData.companyImage} alt="companyImage" className='h-7 md:h-10 lg:h-12 w-auto' />
-                                    <p>{companyData.companyName}</p>
+                                    <p className='hidden md:flex flex-col'>{companyData.companyName}</p>
                                 </div>
                             </SwiperSlide>) :
                             ""

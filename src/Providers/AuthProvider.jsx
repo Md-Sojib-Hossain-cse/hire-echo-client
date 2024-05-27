@@ -1,42 +1,42 @@
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import { createContext, useEffect, useState } from "react";
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 import axios from "axios";
 
 export const AuthContext = createContext()
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
     const auth = getAuth(app);
 
-    const [user , setUser] = useState(null);
-    const [loading , setLoading]= useState(true);
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const googleAuthProvider = new GoogleAuthProvider();
 
 
     //create a user using email password auth
-    const createUser = (email  , password) => {
+    const createUser = (email, password) => {
         setLoading(true);
-        return createUserWithEmailAndPassword(auth , email , password);
+        return createUserWithEmailAndPassword(auth, email, password);
     }
 
 
     //login user with email password
-    const logIn = (email , password) => {
+    const logIn = (email, password) => {
         setLoading(true);
-        return signInWithEmailAndPassword(auth , email , password);
+        return signInWithEmailAndPassword(auth, email, password);
     }
 
     //login user with google
     const googleLogin = () => {
         setLoading(true);
-        return signInWithPopup(auth , googleAuthProvider);
+        return signInWithPopup(auth, googleAuthProvider);
     }
 
     //update user info
-    const updateUser = (currentUser , updatedInfo) => {
-        return updateProfile(currentUser , updatedInfo);
+    const updateUser = (currentUser, updatedInfo) => {
+        return updateProfile(currentUser, updatedInfo);
     }
 
     //logout user
@@ -45,29 +45,40 @@ const AuthProvider = ({children}) => {
         return signOut(auth);
     }
 
-    
+
     //user observer
     //auth state
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth , currentUser => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
+            const userEmail = currentUser?.email || user?.email;
+            const loggedUser = {email : userEmail}
             setLoading(false);
-
             //generating token
-            axios.post("http://localhost:5000/jwt" , {email : currentUser.email} , {withCredentials : true})
+            if(currentUser){
+                axios.post("https://hire-echo-server.vercel.app/jwt", loggedUser, { withCredentials: true })
+                    .then(()=> {
+
+                    })
+            }
+            else{
+                axios.post("https://hire-echo-server.vercel.app/logout", loggedUser, { withCredentials: true })
+                    .then(() => {})
+            }
+            
         });
         return () => {
             unSubscribe();
         }
-    } , [])
+    }, [])
 
 
 
     const authInfo = {
-        user ,
+        user,
         loading,
-        createUser ,
-        setUser , 
+        createUser,
+        setUser,
         logIn,
         googleLogin,
         updateUser,
@@ -82,7 +93,7 @@ const AuthProvider = ({children}) => {
 };
 
 AuthProvider.propTypes = {
-    children : PropTypes.node,
+    children: PropTypes.node,
 }
 
 export default AuthProvider;

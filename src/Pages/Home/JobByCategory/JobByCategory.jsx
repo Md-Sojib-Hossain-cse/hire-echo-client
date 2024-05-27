@@ -13,7 +13,7 @@ const JobByCategory = () => {
 
     //fetch jobs data using axios
     useEffect(() => {
-        axios.get(`http://localhost:5000/allJobs?category=${category}`)
+        axios.get(`https://hire-echo-server.vercel.app/allJobs?category=${category}`)
             .then(res => {
                 setJobs(res.data);
                 setDataLoading(false);

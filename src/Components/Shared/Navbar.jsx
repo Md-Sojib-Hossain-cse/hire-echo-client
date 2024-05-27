@@ -16,10 +16,10 @@ const Navbar = () => {
 
     //theme toggler
     const handleTheme = e => {
-        if(e.target.checked){
+        if (e.target.checked) {
             setTheme("dark")
         }
-        else{
+        else {
             setTheme("light")
         }
     }
@@ -49,13 +49,13 @@ const Navbar = () => {
                             <div className="flex md:gap-2 justify-center items-center md:mr-2">
                                 <label className="swap swap-rotate">
                                     {/* this hidden checkbox controls the state */}
-                                    <input 
-                                    onChange={handleTheme} 
-                                    type="checkbox" 
-                                    className="theme-controller" 
-                                    value="synthwave" 
-                                    checked = {theme === "light" ? false : true}/>
-                                    <IoMoonOutline className="swap-on fill-current w-6 h-6 " />  
+                                    <input
+                                        onChange={handleTheme}
+                                        type="checkbox"
+                                        className="theme-controller"
+                                        value="synthwave"
+                                        checked={theme === "light" ? false : true} />
+                                    <IoMoonOutline className="swap-on fill-current w-6 h-6 " />
                                     <IoSunnyOutline className="swap-off fill-current w-6 h-6 " />
                                 </label>
                                 <NavLink to="/" className="text-sm md:text-lg md:btn md:btn-ghost px-1 py-1 hover:text-blue-500">Home</NavLink>

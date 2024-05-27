@@ -22,7 +22,7 @@ const ApplyNowForm = ({ jobData }) => {
             applicantDetails
         }
         
-        axios.post("http://localhost:5000/appliedJobs" , appliedJobData , {withCredentials : true})
+        axios.post("https://hire-echo-server.vercel.app/appliedJobs" , appliedJobData , {withCredentials : true})
             .then(res => {
                 if(res.data.insertedId){
                     toast.success("Application submitted");
@@ -31,7 +31,6 @@ const ApplyNowForm = ({ jobData }) => {
             .catch(error => {
                 if(error.message){
                     toast.error("Can't apply at this moment , try again later.");
-                    console.log(error.message)
                 }
             })
     }
