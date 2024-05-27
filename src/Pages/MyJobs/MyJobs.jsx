@@ -14,6 +14,7 @@ const MyJobs = () => {
     //loading state 
     const [myJobsLoading, setMyJobsLoading] = useState(true);
 
+
     //loading data based on current user email
     useEffect(() => {
         axios.get(`http://localhost:5000/allJobs?email=${user?.email}` , {withCredentials : true})

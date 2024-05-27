@@ -4,7 +4,8 @@ import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import AppliedJobsCard from "../../Components/AppliedJobsCard";
 import { Helmet } from "react-helmet-async";
-
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas-pro";
 
 
 const AppliedJobs = () => {
@@ -14,9 +15,38 @@ const AppliedJobs = () => {
     const [appliedJobsLoading, setAppliedJobsLoading] = useState(true);
     const { user } = useAuth();
 
+
+    // pdf download 
+    const handlePdfDownload = () => {
+        const pdfDoc = document.getElementById("appliedJobsContainer");
+        html2canvas(pdfDoc).then(canvas => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('landscape');
+
+            const imgWidth = pdf.internal.pageSize.getWidth();
+            const pageHeight = pdf.internal.pageSize.getHeight();
+            const imgHeight = canvas.height * imgWidth / canvas.width;
+            let heightLeft = imgHeight;
+
+            let position = 0;
+
+            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+
+            while (heightLeft >= 0) {
+                position = heightLeft - imgHeight;
+                pdf.addPage();
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+            }
+            pdf.save('download.pdf');
+        })
+            ;
+    }
+
+    //filtering applied jobs
     const handleFilter = e => {
         const filterText = e.target.value;
-
         //get applied jobs based on category
         axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}&filterBy=${filterText}`, { withCredentials: true })
             .then(res => {
@@ -66,8 +96,9 @@ const AppliedJobs = () => {
                     <option name="remote" id="remote" value="remote">Remote</option>
                     <option name="part-time" id="part-time" value="part-time">Part Time</option>
                 </select>
+                <button onClick={handlePdfDownload} className="px-2 md:px-3 py-2 rounded-lg bg-blue-400 text-white text-sm md:text-base">Download Summery</button>
             </div>
-            <div className="py-4 md:py-6 lg:py-8 border border-t-0 rounded-b-lg">
+            <div id="appliedJobsContainer" className="py-4 md:py-6 lg:py-8 border border-t-0 rounded-b-lg">
                 {
                     appliedJobsLoading ? <div className="min-h-screen flex justify-center items-center">
                         <img src="https://i.ibb.co/xF7yDds/loading.gif" alt="" className="h-48 w-auto" />
