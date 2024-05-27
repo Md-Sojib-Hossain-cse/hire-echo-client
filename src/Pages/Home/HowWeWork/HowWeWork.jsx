@@ -10,19 +10,19 @@ const HowWeWork = () => {
             <h3 className="text-3xl md:text-4xl font-medium text-center pb-6 md:pb-8 lg:pb-12">How HireEcho Works For You</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="p-4 md:p-6 lg:p-8 border flex justify-center items-center gap-4 flex-col rounded-tr-3xl rounded-bl-3xl w-full -translate-y-3 hover:bg-blue-400 hover:text-white transition delay-75 duration-300 hover:-translate-y-6">
-                    <TbBasketSearch  className="text-3xl"/>
+                    <TbBasketSearch className="text-3xl" />
                     <p className="text-xl font-medium">Find The Right Job</p>
                 </div>
                 <div className="p-4 md:p-6 lg:p-8 border flex justify-center items-center gap-4 flex-col rounded-tr-3xl rounded-bl-3xl w-full translate-y-3 hover:bg-blue-400 hover:text-white transition delay-75 duration-300 hover:translate-y-0">
-                    <BsBuildingFillCheck  className="text-3xl"/>
+                    <BsBuildingFillCheck className="text-3xl" />
                     <p className="text-xl font-medium">Research Companies</p>
                 </div>
                 <div className="p-4 md:p-6 lg:p-8 border flex justify-center items-center gap-4 flex-col rounded-tr-3xl rounded-bl-3xl w-full -translate-y-3 hover:bg-blue-400 hover:text-white transition delay-75 duration-300 hover:-translate-y-6">
-                    <GiTakeMyMoney  className="text-3xl"/>
+                    <GiTakeMyMoney className="text-3xl" />
                     <p className="text-xl font-medium">Compare Salary</p>
                 </div>
                 <div className="p-4 md:p-6 lg:p-8 border flex justify-center items-center gap-4 flex-col rounded-tr-3xl rounded-bl-3xl w-full translate-y-3 hover:bg-blue-400 hover:text-white transition delay-75 duration-300 hover:translate-y-0">
-                    <FcDocument  className="text-3xl"/>
+                    <FcDocument className="text-3xl" />
                     <p className="text-xl font-medium">Quick Apply</p>
                 </div>
             </div>

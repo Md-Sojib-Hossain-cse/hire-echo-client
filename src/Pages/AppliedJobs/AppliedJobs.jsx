@@ -5,6 +5,8 @@ import useAuth from "../../hooks/useAuth";
 import AppliedJobsCard from "../../Components/AppliedJobsCard";
 import { Helmet } from "react-helmet-async";
 
+
+
 const AppliedJobs = () => {
 
     const [appliedJobs, setAppliedJobs] = useState([]);
@@ -14,10 +16,9 @@ const AppliedJobs = () => {
 
     const handleFilter = e => {
         const filterText = e.target.value;
-        console.log(filterText)
-        
+
         //get applied jobs based on category
-        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}&filterBy=${filterText}` , {withCredentials : true})
+        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}&filterBy=${filterText}`, { withCredentials: true })
             .then(res => {
                 setAppliedJobs(res.data);
                 setAppliedJobsDataError("");
@@ -31,7 +32,7 @@ const AppliedJobs = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}` , {withCredentials : true})
+        axios.get(`http://localhost:5000/appliedJobs?email=${user?.email}`, { withCredentials: true })
             .then(res => {
                 setAppliedJobs(res.data);
                 setAppliedJobsDataError("");

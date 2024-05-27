@@ -3,32 +3,29 @@ import useAuth from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
 
 const Profile = () => {
     const { loading, user } = useAuth();
     const [jobAppliedCount, setJobAppliedCount] = useState([]);
     const [jobPostedCount, setJobPostedCount] = useState([]);
-    const [profileDataLoading, setProfileDataLoading] = useState(true);
 
     useEffect(() => {
         //applied job count api
         axios.get(`http://localhost:5000/jobAppliedCount?email=${user.email}`, { withCredentials: true })
             .then(res => {
                 setJobAppliedCount(res.data)
-                setProfileDataLoading(false);
             })
             .catch(() => {
-                setProfileDataLoading(false);
             })
 
         //posted job count api
         axios.get(`http://localhost:5000/jobPostedCount?email=${user.email}`, { withCredentials: true })
             .then(res => {
                 setJobPostedCount(res.data)
-                setProfileDataLoading(false);
             })
             .catch(() => {
-                setProfileDataLoading(false);
             })
     }, [])
 
@@ -54,14 +51,24 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className="md:w-1/3 flex gap-4">
-                    <div className="p-4 rounded-lg bg-violet-700 text-white">
-                        <h6 className="text-lg font-semibold text-white text-center">Job Applied</h6>
-                        <Link to="/appliedJobs"><p className="text-center text-6xl mt-4">{jobAppliedCount.length || 0}</p></Link>
-                    </div>
-                    <div className="p-4 rounded-lg bg-teal-600 text-white">
-                        <h6 className="text-lg font-semibold text-white text-center">Job Posted</h6>
-                        <Link to="/myJobs"><p className="text-center text-6xl mt-4">{jobPostedCount.length || 0}</p></Link>
-                    </div>
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+                        <div className="p-4 rounded-lg bg-violet-700 text-white">
+                            <h6 className="text-lg font-semibold text-white text-center">Job Applied</h6>
+                            <Link to="/appliedJobs"><p className="text-center text-6xl mt-4">{jobAppliedCount.length || 0}</p></Link>
+                        </div>
+                    </motion.button>
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+                        <div className="p-4 rounded-lg bg-teal-600 text-white">
+                            <h6 className="text-lg font-semibold text-white text-center">Job Posted</h6>
+                            <Link to="/myJobs"><p className="text-center text-6xl mt-4">{jobPostedCount.length || 0}</p></Link>
+                        </div>
+                    </motion.button>
                 </div>
             </div>
         </div>

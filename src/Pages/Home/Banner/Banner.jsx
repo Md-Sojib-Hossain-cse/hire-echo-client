@@ -23,7 +23,7 @@ const Banner = () => {
                         </button>
                     </div>
                 </div>
-                <img src="https://i.ibb.co/64z0t4G/bannerman.png" alt="" className="hidden md:flex h-full w-full object-cover"/>
+                <img src="https://i.ibb.co/64z0t4G/bannerman.png" alt="" className="hidden md:flex h-full w-full object-cover" />
             </div>
         </div>
     );
