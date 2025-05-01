@@ -1,21 +1,97 @@
+# 🚀 Hire Echo – Client Side
 
-# HireEcho
+**Hire Echo** is a modern job hunting web application built using the MERN stack. This is the client-side of the application built with **React**, **Vite**, **Tailwind CSS**, and **Firebase Auth** for authentication.
 
+---
 
-## Live Link
+## 🌐 Live Site
 
-https://hire-echo.web.app/
+[🔗 Visit Hire Echo (Demo)](https://hire-echo.web.app/)  
 
+---
 
-## Key Features
+## ✨ Key Features
 
-- Find Your Dream Jobs in an organized way
-- Post jobs without any cost and find out your best candidate
-- Manage Your Applied Jobs in an organized way
-- Read some informative and resourceful blogs to expand your knowledge
-- Place in the worlds top tier companies
+🧠 Job listing with filters
 
+📄 Resume export as PDF
 
-## Selected Category
+✅ Apply to jobs
 
-Assignment_category_0003
+🗂️ Post and manage job listings
+
+🔐 Private dashboard for applicants and recruiters
+
+🔍 Search and category filtering
+
+🎨 Beautiful, responsive UI
+
+📦 Scripts
+
+---
+
+## 🛠️ Technologies Used
+
+- React
+- Vite
+- Tailwind CSS & DaisyUI
+- React Router DOM
+- Firebase Authentication
+- Axios
+- TanStack React Query
+- AOS (Animate on Scroll)
+- Framer Motion
+- SweetAlert2
+- Moment.js
+- HTML2Canvas + jsPDF (for resume export)
+- LocalForage (for offline storage)
+
+---
+
+## Environment Variables
+
+```
+VITE_apiKey=AIzaSy**************DummyKey***************
+VITE_authDomain=your-project.firebaseapp.com
+VITE_projectId=your-project-id
+VITE_storageBucket=your-project.appspot.com
+VITE_messagingSenderId=000000000000
+VITE_appId=1:000000000000:web:xxxxxxxxxxxxxxxx
+
+```
+
+## ⚙️ Setup Instructions
+
+```bash
+## 1. Clone the Repository
+git clone https://github.com/your-username/hire-echo-client.git
+cd hire-echo-client
+
+## Install Dependencies
+npm install
+
+## Run the Development Server
+npm run dev
+```
+
+## 🔐 Authentication
+
+Powered by Firebase Authentication, supports:
+
+Email/Password login
+
+Persistent user session via localStorage
+
+Protected routes using custom hooks
+
+### Command Description
+
+npm run dev Start development server (Vite)
+npm run build Build for production
+npm run preview Preview production build
+npm run lint Run ESLint
+
+## 👨‍💻 Author
+
+MD SOJIB HOSSAIN
+📧 sojibhossain.cse@gmail.com
